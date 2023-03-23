@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "sourceMap": true,
+    "moduleResolution": "nodenext",
+    "declaration": true,
+    "module": "ESNext",
+    "declarationMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom",
+      "DOM",
+      "ES5"
+    ],
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "preserveSymlinks": true,
+    "useUnknownInCatchVariables": false
+  },
+    "ts-node": {
+      // Tell ts-node CLI to install the --loader automatically
+      "esm": true
+    },
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"],
+  "include": [
+    "src/**/*",
+    "node_modules/@types/js-base64/index.d.ts"
+  ],
+  "types": ["node", "aws-sdk"]
+}
