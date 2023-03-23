@@ -39,6 +39,7 @@
     "compression": "^1.7.4",
     "connect": "^3.7.0",
     "dotenv": "^16.0.3",
+    "grammy": "^1.15.3",
     "jsonl": "^1.1.2",
     "jsonlines": "^0.1.1",
     "method-override": "^3.0.0",
@@ -46,9 +47,11 @@
     "openai": "^3.2.1",
     "rimraf": "^4.4.1",
     "serve-static": "^1.15.0",
+    "telegraf": "^4.12.2",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
+    "typegram": "^5.0.0",
     "webpack": "^5.76.3"
   }
 }
