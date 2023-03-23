@@ -1,4 +1,3 @@
-
 export const OPEN_API_MODELS = {
     GPT_3_5_TURBO:  "gpt-3.5-turbo",
     GPT_3_5_TURBO_II: "gpt-3.5-turbo-0301",
