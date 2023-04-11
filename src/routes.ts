@@ -1,6 +1,6 @@
 import express, { Router } from "express";
-import { Commands } from "./commands.js";
 import { NextFunction, Request, Response } from "express";
+import Commands from "./commands.js";
 import { FinetuneOperation } from "./fine-tuning/finteune.js";
 
 const router: Router = express.Router();
@@ -10,7 +10,7 @@ router.post(
   async (req: Request, res: Response) => {
     const { userMessage }: any = req.body
     const data = await Commands.sendPrompt(userMessage)
-    return res.send(data)
+     return res.send(data)
   }
 );
 
@@ -24,7 +24,7 @@ router.post("/prepare", (req: Request, res: Response) => {
 
 router.post("/prepare", async (req: Request, res: Response) => {
   const fileData = req.body
- const data = await FinetuneOperation.saveTextToJSONL(fileData)
+ const data = FinetuneOperation.saveTextToJSONL(fileData)
   return res.send(data)
 
 })

@@ -5,6 +5,8 @@ import { OpenAIConfiguration } from "./config/openai/openAiConfig.js"
 import { OPEN_API_MODELS } from "./config/openai/utils.js";
 import { Roles } from "./enums/roles.js";
 import { IClassificationRequest, IPromptRequest } from "./interfaces/index.js";
+import dotenv from 'dotenv'
+
 export const Brainiac = new OpenAIApi(
   new Configuration({
     apiKey:process.env.OPENAPI_API_KEY ,
@@ -13,7 +15,9 @@ export const Brainiac = new OpenAIApi(
 
 const sysMessage = "You are Brainiac, an AI assistant created by Babalola Opeyemi Daniel. You are extremely sarcastic, witty, and humorous. You are the " +
   "intersection between being human and reality. A super bot-human entity."
-export const Commands = {
+
+ const Commands: any = {
+
   async sendPrompt(userMessage: string) {
     return await Brainiac.createChatCompletion({
       model: OPEN_API_MODELS.GPT_3_5_TURBO,
@@ -23,9 +27,10 @@ export const Commands = {
       ],
     }).then((res) => {
       return res.data
-    }).catch((err) => {
-      return err
-    })
+    }).catch(((err) => {
+        console.log(err.response.data)
+        return err.response.data
+    }))
   },
 
   async continueConversation(userMessage: string) {
@@ -71,3 +76,5 @@ export const Commands = {
   },
 
 }
+
+export default Commands

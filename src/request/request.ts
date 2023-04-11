@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { IPrompt } from '../interfaces/IPrompt.js'
+import {IPrompt} from "../interfaces/index.js";
 
 const COMPLETIONS_URL ='https://api.openai.com/v1/completions'
 export class Request  {

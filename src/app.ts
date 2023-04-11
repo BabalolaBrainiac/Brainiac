@@ -10,8 +10,9 @@ const isProduction: boolean = process.env.NODE_ENV === "production";
 
 app.use(bodyParser.json({ limit: "50mb" }));
 
+
 app.use(helmet());
-app.disable("x-pered-by");
+app.disable("x-powered-by");
 
 app.use(methodOverride());
 
