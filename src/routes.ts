@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { NextFunction, Request, Response } from "express";
 import Commands from "./commands.js";
 import { FinetuneOperation } from "./fine-tuning/finteune.js";
+import {Openai} from "./langchain/openai.js";
 
 const router: Router = express.Router();
 
@@ -14,6 +15,15 @@ router.post(
   }
 );
 
+router.post(
+    "/send",
+    async (req: Request, res: Response) => {
+        const { userMessage }: any = req.body
+
+        return res.send(Openai.RunBasicCommand(userMessage))
+    }
+);
+
 router.post("/upload", (req: Request, res: Response) => {
   console.log("upload")
 })
@@ -24,8 +34,8 @@ router.post("/prepare", (req: Request, res: Response) => {
 
 router.post("/prepare", async (req: Request, res: Response) => {
   const fileData = req.body
- const data = FinetuneOperation.saveTextToJSONL(fileData)
-  return res.send(data)
+ await FinetuneOperation.saveTextToJSONL(fileData)
+   res.send("DONE")
 
 })
 

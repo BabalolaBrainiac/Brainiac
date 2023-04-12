@@ -1,8 +1,10 @@
+import {response} from "express";
 import {InlineKeyboard} from "grammy";
 import { Context, Markup, Telegraf, Telegram } from 'telegraf';
 import { Update } from 'typegram';
 import Commands from "../commands.js";
 import {message} from "telegraf/filters";
+import {PromptTemplates} from "../langchain/prompts_templates.js";
 
 const token: string = process.env.BOT_TOKEN as string;
 
@@ -80,17 +82,14 @@ brainiacBot.command('keyboard', (ctx) => {
 
 brainiacBot.on(message('text'), (ctx) => ctx.reply('👍 Welcome bossest'));
 
-// const welcome = ["Hi", "Hello", "Hey", "Whatsup", "Heyy", "Heyyy"]
+brainiacBot.on(message('text'), async (ctx) => {
 
-// brainiacBot.on('text', async (ctx) => {
-//     const res = brainacReply(ctx.message.text)
-//     let welcomemsg;
-//     for (let i = 0; i < welcome.length; i++) {
-//         await ctx.reply(
-//             (ctx.message.text === welcome[i] ? welcomemsg : res) + ""
-//         );
-//     }
-// })
+    return await Commands.sendPrompt(ctx.message.text).then(async (response) => {
+        await ctx.reply(response)
+    })
+
+
+})
 
 brainiacBot.on('text', async (ctx) => {
   if (ctx.message.chat.id) {

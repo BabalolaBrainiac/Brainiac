@@ -50,6 +50,7 @@
     "grammy": "^1.15.3",
     "jsonl": "^1.1.2",
     "jsonlines": "^0.1.1",
+    "langchain": "^0.0.53",
     "method-override": "^3.0.0",
     "multer": "1.4.5-lts.1",
     "openai": "^3.2.1",
