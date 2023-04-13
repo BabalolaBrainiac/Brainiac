@@ -1,18 +1,26 @@
-import {OpenAI} from "langchain";
+import dotenv from "dotenv";
+import { OpenAI } from "langchain";
+import { SerpAPI } from "langchain/tools";
 import { Configuration, OpenAIApi } from "openai";
 import * as process from "process";
-import dotenv from 'dotenv'
 
-dotenv.config()
+dotenv.config();
 
 export const OpenAIConfiguration = {
-  async config(openAIAPiKey: string) {
+  async config() {
     return new OpenAIApi(
       new Configuration({
-        apiKey: openAIAPiKey,
+        apiKey: process.env.OPENAPI_API_KEY,
       })
     );
   },
 };
 
-export const LangChainModel = new OpenAI({ openAIApiKey: "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", temperature: 0.9 });
+export const PROVIDER_KEYS = {
+  SERPI_API_KEY: new SerpAPI(),
+};
+
+export const LangChainModel = new OpenAI({
+  openAIApiKey: process.env.OPENAPI_API_KEY,
+  temperature: 0.9,
+});

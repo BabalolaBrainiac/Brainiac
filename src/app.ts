@@ -4,12 +4,10 @@ import helmet from "helmet";
 import methodOverride from "method-override";
 import routes from "./routes.js";
 
-
- const app = express();
+const app = express();
 const isProduction: boolean = process.env.NODE_ENV === "production";
 
-app.use(bodyParser.json({ limit: "50mb" }));
-
+app.use(bodyParser.json());
 
 app.use(helmet());
 app.disable("x-powered-by");
@@ -25,10 +23,9 @@ app.use(function (req, res, next) {
   const router = express.Router();
   router.use("/api", routes);
 
-  app.use(router)
+  app.use(router);
 
   next();
 });
 
-export default app
-
+export default app;

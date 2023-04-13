@@ -1,69 +1,68 @@
 import { Roles } from "../enums/roles.js";
 
 export interface IChatMessage {
-  role: Roles,
-  content: string
+  role: Roles;
+  content: string;
 }
 
 export interface IUploadFileTypeIJsonUploadFile {
-  path: string,
-  file: string
-  fileId?: string,
+  path: string;
+  file: string;
+  fileId?: string;
+  training_file: string;
 }
 
 export type pathOptions = {
-  inputPath: string,
-  outPutPath: string
-}
+  inputPath: string;
+  outPutPath: string;
+};
 
 export enum IUploadFileType {
   JSON = "JSON",
-  OBJECT = "OBJECT"
+  OBJECT = "OBJECT",
 }
 
 export interface UploadType {
-  type: IUploadFileType,
-  data: any
+  type: IUploadFileType;
+  data: any;
 }
 
 export interface BaseMessage {
-  role: Roles,
-  content: string
+  role: Roles;
+  content: string;
 }
 
 export interface IMessage {
-  systemMessage: string
+  systemMessage: string;
 }
 
 export interface IObject {
-  file: any,
-  path: string
+  file: any;
+  path: string;
 }
 
 export interface IClassificationRequest {
-  examples: [[]],
-  query: string,
-  search_model: string,
-  model: string,
-  labels: [string],
+  examples: [[]];
+  query: string;
+  search_model: string;
+  model: string;
+  labels: [string];
 }
 
 export interface IPromptRequest {
-  prompt: string,
-  fileId?: string
-  completion?: string,
-  model?: string,
-  temperature?: number,
-  max_tokens?: number,
-  size?: string,
-  n?: number,
-  file?: File,
-  top_p?: string,
-  frequency_penalty?: string,
-  presence_penalty?: number,
-  stop?: [],
-
-
+  prompt: string;
+  fileId?: string;
+  completion?: string;
+  model?: string;
+  temperature?: number;
+  max_tokens?: number;
+  size?: string;
+  n?: number;
+  file?: File;
+  top_p?: string;
+  frequency_penalty?: string;
+  presence_penalty?: number;
+  stop?: [];
 }
 
 // const completionRequest: CompletionRequest = {
@@ -76,26 +75,25 @@ export interface IPromptRequest {
 //   stop: ['\n'],
 // }
 
-
 export interface IPrompt {
-  question: string,
-  context: Record<string, string>
+  question: string;
+  context: Record<string, string>;
 }
 
 const samplePrompt = (prompt: string) => {
   const question = {
-    "what is going on": "I have no idea. I am just winging it, figuring life out one day at a time. What is going on with you",
+    "what is going on":
+      "I have no idea. I am just winging it, figuring life out one day at a time. What is going on with you",
     "what is going on with you": "Omo, i no sabi abeg. You self answer",
-    "wetin do you": "i am okay. I happen to be doing very okay. Can't say the same for a lot of people lmao",
-    "how are you doing today": "I dont care man. Ask me something productive. See a therapist for your woes",
+    "wetin do you":
+      "i am okay. I happen to be doing very okay. Can't say the same for a lot of people lmao",
+    "how are you doing today":
+      "I dont care man. Ask me something productive. See a therapist for your woes",
     prompt: ``,
-  }
-}
+  };
+};
 
 const sample2 = {
-  documents: [
-
-  ],
+  documents: [],
   model: "",
-
-}
+};
