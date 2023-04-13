@@ -2,9 +2,12 @@ import express, { Router } from "express";
 import { NextFunction, Request, Response } from "express";
 import Commands from "./commands.js";
 import { FinetuneOperation } from "./fine-tuning/finteune.js";
+import {Chain} from "./langchain/chain.js";
 import {Openai} from "./langchain/openai.js";
 
+
 const router: Router = express.Router();
+const chat = new Chain()
 
 router.post(
   "/send",
@@ -19,7 +22,6 @@ router.post(
     "/send",
     async (req: Request, res: Response) => {
         const { userMessage }: any = req.body
-
         return res.send(Openai.RunBasicCommand(userMessage))
     }
 );

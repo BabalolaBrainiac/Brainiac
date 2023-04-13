@@ -35,9 +35,8 @@ export const PromptTemplates = {
 }
 
 
-type ICreateTemplate = {
+export type ICreateTemplate = {
         query: string,
         option: string,
         value: string,
-
 }
